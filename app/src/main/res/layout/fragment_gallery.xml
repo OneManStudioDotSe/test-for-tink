@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                tools:itemCount="20"
+                app:spanCount="2"
+                tools:listitem="@layout/item_doggo" />
+
+            <include
+                android:id="@+id/loading"
+                layout="@layout/element_loading"
+                android:visibility="gone"
+                tools:visibility="gone" />
+
+            <include
+                android:id="@+id/error"
+                layout="@layout/element_error"
+                android:visibility="gone"
+                tools:visibility="gone" />
+
+            <include
+                android:id="@+id/empty"
+                layout="@layout/element_empty_content"
+                android:visibility="gone"
+                tools:visibility="gone" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</layout>

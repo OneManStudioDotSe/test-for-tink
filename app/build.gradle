@@ -30,7 +30,8 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
-    android.buildFeatures.dataBinding true
+    buildFeatures.dataBinding true
+    buildFeatures.viewBinding = true
     dexOptions.javaMaxHeapSize "4G"
     lintOptions.abortOnError false
     aaptOptions.cruncherEnabled false
@@ -90,6 +91,7 @@ dependencies {
     implementation "com.google.android.material:material:$deps.materialComps"
     implementation 'androidx.coordinatorlayout:coordinatorlayout:1.1.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
     kapt "androidx.annotation:annotation:$deps.annotations"
 
     //Navigation

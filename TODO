@@ -1,3 +1,4 @@
+- Navigation graph
 - Add a unique theme with Material Components
 - SafeArgs for navigation between views
 - DI with Dagger and Hilt
