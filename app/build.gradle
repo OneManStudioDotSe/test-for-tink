@@ -1,0 +1,126 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-android-extensions'
+}
+
+def versionMajor = 1
+def versionMinor = 0
+def versionPatch = 0
+def versionBuild = 1
+
+def deps = rootProject.ext
+
+android {
+    compileSdkVersion deps.compileSdk
+    buildToolsVersion deps.buildTools
+
+    defaultConfig {
+        applicationId "com.tinktest.sotiris"
+        minSdkVersion deps.minSdk
+        targetSdkVersion deps.targetSdk
+
+        versionCode versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
+        setProperty("archivesBaseName", applicationId + "-" + versionName + "." + versionBuild)
+
+        multiDexEnabled true
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    android.buildFeatures.dataBinding true
+    dexOptions.javaMaxHeapSize "4G"
+    lintOptions.abortOnError false
+    aaptOptions.cruncherEnabled false
+
+    packagingOptions {
+        pickFirst("META-INF/atomicfu.kotlin_module")
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'LICENSE.txt'
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField "String", "BASE_URL", '"https://pugme.herokuapp.com/"'
+
+            debuggable true
+
+            minifyEnabled false
+            shrinkResources false
+            zipAlignEnabled false
+
+            jniDebuggable false
+            renderscriptDebuggable false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    //Core Android stuff
+    implementation "androidx.multidex:multidex:$deps.multidex"
+    implementation "androidx.appcompat:appcompat:$deps.compat"
+    implementation "androidx.cardview:cardview:$deps.androidX"
+    implementation "androidx.gridlayout:gridlayout:$deps.androidX"
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta6'
+    implementation "androidx.recyclerview:recyclerview:$deps.recyclerView"
+    implementation "com.google.android.material:material:$deps.materialComps"
+    implementation 'androidx.coordinatorlayout:coordinatorlayout:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    kapt "androidx.annotation:annotation:$deps.annotations"
+
+    //Navigation
+    implementation "androidx.navigation:navigation-ui-ktx:$deps.navigation"
+    implementation "androidx.navigation:navigation-fragment-ktx:$deps.navigation"
+
+    //Lifecycle
+    implementation "androidx.lifecycle:lifecycle-extensions:$deps.lifecycle"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$deps.lifecycle"
+
+    //Coroutines
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$deps.coroutines"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$deps.coroutines"
+
+    //Kotlin & friends
+    implementation "androidx.core:core-ktx:$deps.ktx"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$deps.kotlin"
+
+    //Retrofit + OkHttp
+    implementation "com.squareup.retrofit2:retrofit:$deps.retrofit"
+    implementation "com.squareup.retrofit2:converter-moshi:$deps.retrofit"
+    implementation "com.squareup.okhttp3:okhttp:$deps.okHttp"
+    implementation "com.squareup.okhttp3:logging-interceptor:$deps.okHttp"
+    implementation "com.squareup.okhttp3:okhttp:$deps.okHttp"
+    implementation "com.squareup.okhttp3:okhttp-urlconnection:$deps.okHttp"
+
+    //Moshi
+    implementation "com.squareup.moshi:moshi:$deps.moshi"
+    implementation "com.squareup.moshi:moshi-kotlin:$deps.moshi"
+
+    //Tools to make life easier
+    implementation "io.coil-kt:coil:$deps.coil"
+    implementation "com.jakewharton.timber:timber:$deps.timber"
+}
