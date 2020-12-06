@@ -2,7 +2,6 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
-    id 'kotlin-android-extensions'
 }
 
 def versionMajor = 1
@@ -86,7 +85,6 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$deps.compat"
     implementation "androidx.cardview:cardview:$deps.androidX"
     implementation "androidx.gridlayout:gridlayout:$deps.androidX"
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta6'
     implementation "androidx.recyclerview:recyclerview:$deps.recyclerView"
     implementation "com.google.android.material:material:$deps.materialComps"
     implementation 'androidx.coordinatorlayout:coordinatorlayout:1.1.0'
@@ -125,4 +123,6 @@ dependencies {
     //Tools to make life easier
     implementation "io.coil-kt:coil:$deps.coil"
     implementation "com.jakewharton.timber:timber:$deps.timber"
+
+    implementation 'com.thedeanda:lorem:2.1'
 }
