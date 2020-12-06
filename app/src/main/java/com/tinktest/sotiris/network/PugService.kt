@@ -1,10 +1,11 @@
 package com.tinktest.sotiris.network
 
-import com.tinktest.sotiris.models.PugsResponse
+import com.tinktest.sotiris.repository.dtos.PugsResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface PugService {
     @GET("bomb")
-    suspend fun getPugs(@Path("count") count: Int): PugsResponse
+    suspend fun getPugs(@Query("count") count: Int): PugsResponse
 }

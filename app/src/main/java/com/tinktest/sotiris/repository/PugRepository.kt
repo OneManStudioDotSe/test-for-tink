@@ -3,14 +3,14 @@ package com.tinktest.sotiris.repository
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import com.tinktest.sotiris.BuildConfig
-import com.tinktest.sotiris.models.PugsResponse
+import com.tinktest.sotiris.repository.dtos.PugsResponse
 import com.tinktest.sotiris.network.PugService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-class PugRepository {
+object PugRepository {
     private val contentAPI: PugService
 
     private val interceptor: HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
@@ -35,7 +35,7 @@ class PugRepository {
         contentAPI = retrofit.create(PugService::class.java)
     }
 
-    suspend fun getDoggos(count: Int): PugsResponse {
+    suspend fun getDoggos(count: Int): PugsResponse? {
         return contentAPI.getPugs(count)
     }
 }
