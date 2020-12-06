@@ -37,7 +37,7 @@ class GalleryViewModel : ViewModel(), CoroutineScope {
             val results = arrayListOf<PugInfo>()
 
             pugPhotos.forEachIndexed { index, pugImage ->
-                Timber.d("-> %d : %s", index, pugImage)
+                //Timber.d("-> %d : %s", index, pugImage)
                 val pugInfo = PugInfo("Pug " + (index + 1), "Really cute pug", pugImage)
 
                 results.add(pugInfo)

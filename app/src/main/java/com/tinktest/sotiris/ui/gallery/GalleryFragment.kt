@@ -12,6 +12,7 @@ import com.tinktest.sotiris.databinding.FragmentGalleryBinding
 import com.tinktest.sotiris.models.PugInfo
 import com.tinktest.sotiris.ui.details.DetailsFragment
 import com.tinktest.sotiris.ui.gallery.adapter.PugsAdapter
+import timber.log.Timber
 
 class GalleryFragment : Fragment() {
     private lateinit var viewModel: GalleryViewModel
@@ -25,14 +26,26 @@ class GalleryFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentGalleryBinding.inflate(layoutInflater)
+        Timber.d("onCreateView")
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        Timber.d("onViewCreated")
         initializeTheView()
         getTheContent()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Timber.d("onPause")
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Timber.d("onDestroyView")
     }
 
     private fun initializeTheView() {
