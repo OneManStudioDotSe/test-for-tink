@@ -5,11 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import coil.api.load
+import coil.load
 import com.tinktest.sotiris.R
 import com.tinktest.sotiris.databinding.ItemDoggoBinding
 import com.tinktest.sotiris.models.PugInfo
-import timber.log.Timber
 
 class PugsAdapter : RecyclerView.Adapter<PugsAdapter.PostViewHolder>() {
     private var items: List<PugInfo>? = null
