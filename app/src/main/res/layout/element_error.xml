@@ -1,43 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_on_error"
+    android:gravity="center"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/color_on_error"
-        android:gravity="center"
-        android:orientation="vertical">
+    <ImageView
+        android:layout_width="@dimen/size_square_180"
+        android:layout_height="@dimen/size_square_180"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        android:src="@mipmap/ic_launcher" />
 
-        <ImageView
-            android:layout_width="@dimen/size_square_180"
-            android:layout_height="@dimen/size_square_180"
-            android:adjustViewBounds="true"
-            android:scaleType="centerInside"
-            android:src="@mipmap/ic_launcher" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/error_general_title"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/error_general_title"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5" />
+    <TextView
+        android:id="@+id/empty_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/info_error_occurred"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
 
-        <TextView
-            android:id="@+id/empty_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/info_error_occurred"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
+    <Button
+        android:id="@+id/retry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_magic_number"
+        android:text="@string/try_again" />
 
-        <Button
-            android:id="@+id/retry"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_magic_number"
-            android:text="@string/try_again" />
-
-    </LinearLayout>
-
-</layout>
+</LinearLayout>

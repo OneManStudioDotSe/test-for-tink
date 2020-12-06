@@ -56,14 +56,11 @@ class GalleryFragment : Fragment() {
 
         pugsAdapter.setOnItemClickListener(object : PugsAdapter.ClickListener {
             override fun onClick(aView: View, item: PugInfo) {
-                //TODO: Use safeArgs
                 val pugItem = PugInfo(item.name, item.description, item.imageUrl)
-
-                val bundle = Bundle()
-                bundle.putParcelable(DetailsFragment.BUNDLE_PUG_INFO, pugItem)
+                val actionToPugDetails = GalleryFragmentDirections.actionNavToDetails().setPugDetails(pugItem)
 
                 //TODO: Use transition animations
-                aView.findNavController().navigate(R.id.action_nav_to_details, bundle)
+                aView.findNavController().navigate(actionToPugDetails)
             }
         })
 

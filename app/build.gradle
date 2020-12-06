@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'kotlin-parcelize'
+    id 'androidx.navigation.safeargs'
 }
 
 def versionMajor = 1
@@ -30,7 +31,6 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
-    buildFeatures.dataBinding true
     buildFeatures.viewBinding = true
     dexOptions.javaMaxHeapSize "4G"
     lintOptions.abortOnError false

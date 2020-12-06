@@ -1,12 +1,12 @@
 package com.tinktest.sotiris.ui.details
 
+import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import coil.load
 import com.tinktest.sotiris.R
 import com.tinktest.sotiris.databinding.FragmentDetailsBinding
@@ -21,7 +21,10 @@ class DetailsFragment : Fragment() {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this).get(DetailsViewModel::class.java)
 
-        pugDetails = arguments?.getParcelable(BUNDLE_PUG_INFO)
+        arguments?.let {
+            val safeArgs = DetailsFragmentArgs.fromBundle(it)
+            pugDetails = safeArgs.pugDetails
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -63,9 +66,11 @@ class DetailsFragment : Fragment() {
     }
 
     private fun populateTheDetails() {
-        binding.backdrop.load(pugDetails?.imageUrl)
-        binding.pugtitle.text = pugDetails!!.name
-        binding.pugDescription.text = resources.getString(R.string.lorem_dogum)
+        if(pugDetails != null) {
+            binding.backdrop.load(pugDetails?.imageUrl)
+            binding.pugtitle.text = pugDetails!!.name
+            binding.pugDescription.text = resources.getString(R.string.lorem_dogum)
+        }
     }
 
     //TODO: Proper error handling
@@ -77,9 +82,5 @@ class DetailsFragment : Fragment() {
 
             getTheContent()
         }
-    }
-
-    companion object {
-        const val BUNDLE_PUG_INFO = "pug_details"
     }
 }

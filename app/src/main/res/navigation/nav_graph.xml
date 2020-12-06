@@ -2,6 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pug_navigation_graph"
     app:startDestination="@id/navigation_gallery">
 
     <activity
@@ -14,16 +15,26 @@
         android:id="@+id/navigation_gallery"
         android:name="com.tinktest.sotiris.ui.gallery.GalleryFragment"
         android:label="Posts"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_gallery">
+
+        <action
+            android:id="@+id/action_nav_to_details"
+            app:destination="@id/navigation_details" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_details"
         android:name="com.tinktest.sotiris.ui.details.DetailsFragment"
         android:label="Details"
-        tools:layout="@layout/fragment_details" />
+        tools:layout="@layout/fragment_details">
 
-    <action
-        android:id="@+id/action_nav_to_details"
-        app:destination="@id/navigation_details" />
+        <argument
+            android:name="pugDetails"
+            android:defaultValue="@null"
+            app:argType="com.tinktest.sotiris.models.PugInfo"
+            app:nullable="true" />
+
+    </fragment>
 
 </navigation>

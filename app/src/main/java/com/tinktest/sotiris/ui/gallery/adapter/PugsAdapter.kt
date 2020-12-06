@@ -3,7 +3,6 @@ package com.tinktest.sotiris.ui.gallery.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.tinktest.sotiris.R
@@ -20,8 +19,7 @@ class PugsAdapter : RecyclerView.Adapter<PugsAdapter.PostViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
-        binding = DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_doggo, parent, false
-        )
+        binding = ItemDoggoBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return PostViewHolder(binding)
     }
 
