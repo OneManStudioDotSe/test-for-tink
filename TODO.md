@@ -1,17 +1,16 @@
 ## Basics
 - [x] Navigation graph
 - [x] SafeArgs for navigation between views
-- [ ] Basic error handling
+- [x] Basic error handling
 
 
 ## Extras
-- [ ] Add a unique theme with Material Components
+- [x] Add a unique theme with Material Components
 - [ ] DI with Dagger and Hilt
 - [ ] Unit and UI testing
 
 
 ## User-friendliness and the extra mile
-- [ ] Animation for transitions
-- [ ] Animation for population of the grid
-- [ ] Dynamic span count
-- [ ] Dynamic source of dogs
+- [x] Animation for transitions
+- [x] Dynamic span count
+- [x] Dynamic source of dogs

@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.tinktest.sotiris.models.PugInfo
+import com.tinktest.sotiris.repository.DogCeoRepository
 import com.tinktest.sotiris.repository.PugRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -18,14 +19,27 @@ class GalleryViewModel : ViewModel(), CoroutineScope {
     val pugs: LiveData<ArrayList<PugInfo>> = pugsMutableLiveData
 
     fun getPugs() {
-        Timber.d("Getting pugs and generating some info about them...")
+        Timber.d("Getting pugs from Pug Me and generating some info about them...")
         launch {
             val pugPhotos = PugRepository.getDoggos(20)
 
             if(pugPhotos != null) {
                 pugsMutableLiveData.value = preparePugsWithInfo(pugPhotos.pugs)
             } else {
-                //TODO: Proper error handling
+                Timber.w("An error occurred")
+                pugsMutableLiveData.value = null
+            }
+        }
+    }
+
+    fun getPugsFromDogCeo() {
+        Timber.d("Getting pugs from Dog Ceo and generating some info about them...")
+        launch {
+            val pugPhotos = DogCeoRepository.getDoggos()
+
+            if(pugPhotos != null) {
+                pugsMutableLiveData.value = preparePugsWithInfo(pugPhotos.message)
+            } else {
                 Timber.w("An error occurred")
                 pugsMutableLiveData.value = null
             }

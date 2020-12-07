@@ -14,8 +14,16 @@ Feel free to write down any suggestions or improvements that you would make in t
 
 # Features
 - Single Activity structure with multiple fragments
-- Integration of Navigation Components
-- Centralised and easy handling of dependencies
+- Integration of Navigation Components via a navigation graph
+- Integration of a fully-fledged Material theme with the ability to easily change fonts, styling and palette
+- Integration of splash screen to handle cold starts
+- Views to indicated loading of data and errors
+- Use of MVVM as architecture
+- Use of Coroutines and LiveData as data flow model
+- Separation of concerns (UI, Repository, Data) with specific models between each layer
+- Use of multiple repositories
+- Extra features for playing around with the list of dogs (dynamic span count, dynamic source selection)
+- Centralised handling of dependencies
 - Handy scripts for maintenance tasks
 
 # Contact info for submission

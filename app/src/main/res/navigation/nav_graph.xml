@@ -19,11 +19,7 @@
 
         <action
             android:id="@+id/action_nav_to_details"
-            app:destination="@id/navigation_details"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/fade_out"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"/>
+            app:destination="@id/navigation_details"/>
 
     </fragment>
 

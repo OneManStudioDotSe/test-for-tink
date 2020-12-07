@@ -4,9 +4,6 @@ import android.content.Context
 import androidx.multidex.MultiDexApplication
 import timber.log.Timber
 
-/**
- * Created by Sotiris Falieris (sotiris@onemanstudio.se) on 2020-05-28.
- */
 class TinkTestApplication : MultiDexApplication() {
     override fun onCreate() {
         super.onCreate()
@@ -25,8 +22,6 @@ class TinkTestApplication : MultiDexApplication() {
 
     companion object {
         private var instance: TinkTestApplication? = null
-        val context: Context
-            get() = instance!!.applicationContext
+        val context: Context get() = instance!!.applicationContext
     }
 }
-

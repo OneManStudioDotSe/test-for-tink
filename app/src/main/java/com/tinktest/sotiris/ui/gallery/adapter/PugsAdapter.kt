@@ -7,12 +7,12 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.tinktest.sotiris.R
-import com.tinktest.sotiris.databinding.ItemDoggoBinding
+import com.tinktest.sotiris.databinding.ItemDogBinding
 import com.tinktest.sotiris.models.PugInfo
 
 class PugsAdapter : RecyclerView.Adapter<PugsAdapter.PostViewHolder>() {
     private var items: List<PugInfo>? = null
-    private lateinit var binding: ItemDoggoBinding
+    private lateinit var binding: ItemDogBinding
     lateinit var itemClickListener: ItemClickListener
 
     init {
@@ -20,7 +20,7 @@ class PugsAdapter : RecyclerView.Adapter<PugsAdapter.PostViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
-        binding = ItemDoggoBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        binding = ItemDogBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return PostViewHolder(binding)
     }
 
@@ -39,7 +39,7 @@ class PugsAdapter : RecyclerView.Adapter<PugsAdapter.PostViewHolder>() {
         notifyDataSetChanged()
     }
 
-    inner class PostViewHolder(private val itemBinding: ItemDoggoBinding) : RecyclerView.ViewHolder(itemBinding.root) {
+    inner class PostViewHolder(private val itemBinding: ItemDogBinding) : RecyclerView.ViewHolder(itemBinding.root) {
         fun bind(postWithImage: PugInfo) {
             itemBinding.title.text = postWithImage.name
             itemBinding.shortDescription.text = postWithImage.description

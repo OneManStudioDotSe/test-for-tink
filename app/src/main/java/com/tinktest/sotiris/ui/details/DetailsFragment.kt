@@ -11,6 +11,7 @@ import androidx.transition.TransitionInflater
 import coil.load
 import com.tinktest.sotiris.R
 import com.tinktest.sotiris.databinding.FragmentDetailsBinding
+import com.tinktest.sotiris.models.DogFunFact
 import com.tinktest.sotiris.models.PugInfo
 import java.util.concurrent.TimeUnit
 
@@ -43,21 +44,38 @@ class DetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initializeTheView()
-        populateTheDetails()
+
+        setTheDogPhotoAndName()
+        pretendToGetTheDetails()
     }
 
     private fun initializeTheView() {
         binding.toolbar.navigationIcon = ContextCompat.getDrawable(binding.toolbar.context, R.drawable.ic_arrow_back_white_36dp)
         binding.toolbar.setNavigationOnClickListener { requireActivity().onBackPressed() }
+
+        viewModel.dogFunFact.observe(viewLifecycleOwner, {
+                populateTheDetails(it)
+        })
     }
 
-    private fun populateTheDetails() {
+    private fun setTheDogPhotoAndName() {
         if(pugDetails != null) {
             binding.backdrop.transitionName = pugDetails?.imageUrl
 
             binding.backdrop.load(pugDetails?.imageUrl)
             binding.pugtitle.text = pugDetails!!.name
-            binding.pugDescription.text = resources.getString(R.string.lorem_dogum)
         }
+    }
+    private fun pretendToGetTheDetails() {
+        binding.loading.root.visibility = View.VISIBLE
+
+        viewModel.getDogFunFact()
+    }
+
+    private fun populateTheDetails(dogFunFact: DogFunFact) {
+        binding.funFact.text = String.format(getString(R.string.did_you_know_that, dogFunFact.fact).toLowerCase())
+        binding.pugDescription.text = resources.getString(R.string.lorem_dogum)
+
+        binding.loading.content.visibility = View.GONE
     }
 }

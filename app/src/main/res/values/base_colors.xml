@@ -4,8 +4,8 @@
     <color name="color_primary_variant">#ff6c51</color>
     <color name="color_on_primary">#fafafa</color>
 
-    <color name="color_secondary">#cdd1e1</color>
-    <color name="color_secondary_variant">#cdd1e1</color>
+    <color name="color_secondary">#ff6c51</color>
+    <color name="color_secondary_variant">#ff6c51</color>
     <color name="color_on_secondary">#000000</color>
 
     <color name="color_background">#ffffff</color>
