@@ -66,6 +66,7 @@
                 android:paddingEnd="@dimen/space_magic_number">
 
                 <TextView
+                    style="@style/headerMedium"
                     android:id="@+id/pugtitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -73,6 +74,7 @@
                     tools:text="@tools:sample/lorem" />
 
                 <TextView
+                    style="@style/bodyStrong"
                     android:id="@+id/pug_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

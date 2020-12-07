@@ -34,6 +34,7 @@
 
             <TextView
                 android:id="@+id/title"
+                style="@style/headerSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
@@ -43,6 +44,7 @@
 
             <TextView
                 android:id="@+id/short_description"
+                style="@style/bodySimple"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"

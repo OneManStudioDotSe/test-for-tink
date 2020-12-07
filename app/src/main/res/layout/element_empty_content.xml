@@ -12,9 +12,10 @@
         android:layout_height="@dimen/size_square_180"
         android:adjustViewBounds="true"
         android:scaleType="centerInside"
-        android:src="@mipmap/ic_launcher" />
+        android:src="@drawable/app_logo" />
 
     <TextView
+        style="@style/headerMedium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -23,6 +24,7 @@
 
     <TextView
         android:id="@+id/empty_text"
+        style="@style/bodySimple"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"

@@ -1,7 +1,7 @@
 ## Basics
 - [x] Navigation graph
 - [x] SafeArgs for navigation between views
-- [ ] Better error handling
+- [ ] Basic error handling
 
 
 ## Extras
