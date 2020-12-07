@@ -12,7 +12,7 @@ The photo API is available at: https://pugme.herokuapp.com/bomb?count=50
 
 Feel free to write down any suggestions or improvements that you would make in the app given more time to work on it.
 
-# Features
+# Features of my solution
 - Single Activity structure with multiple fragments
 - Integration of Navigation Components via a navigation graph
 - Integration of a fully-fledged Material theme with the ability to easily change fonts, styling and palette
@@ -25,6 +25,11 @@ Feel free to write down any suggestions or improvements that you would make in t
 - Extra features for playing around with the list of dogs (dynamic span count, dynamic source selection)
 - Centralised handling of dependencies
 - Handy scripts for maintenance tasks
+
+# Known issues
+- The transition animations are not the best due to the use of the navigation components which recreate the previous fragment at the backstack
+- There is a bit of duplicated code for the setup of the repos which could be skipped with a use of DI
+- Some strings are hardcoded and not localised to strings.xml
 
 # Contact info for submission
 Engineering Manager -Mobile Apps
