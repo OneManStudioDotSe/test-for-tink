@@ -1,0 +1,7 @@
+- [x] Navigation graph
+- [ ] Add a unique theme with Material Components
+- [x] SafeArgs for navigation between views
+- [ ] DI with Dagger and Hilt
+- [ ] Animations for transitions
+- [ ] Unit and UI testing
+- [ ] More elegant error handling

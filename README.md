@@ -1,4 +1,4 @@
-## Description
+# Description
 The goal of the project is to build a simple app that shows photos of dogs and also allows you to open each photo in a detail view.
 Nothing tricky - and should not take too much time.
 
@@ -12,9 +12,13 @@ The photo API is available at: https://pugme.herokuapp.com/bomb?count=50
 
 Feel free to write down any suggestions or improvements that you would make in the app given more time to work on it.
 
-## Features
+# Features
+- Single Activity structure with multiple fragments
+- Integration of Navigation Components
+- Centralised and easy handling of dependencies
+- Handy scripts for maintenance tasks
 
-## Contact info for submission
+# Contact info for submission
 Engineering Manager -Mobile Apps
 Jonatan Klintberg
 +46 76 307 84 60
