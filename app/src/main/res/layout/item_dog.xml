@@ -39,7 +39,6 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
                 tools:text="@tools:sample/lorem" />
 
             <TextView
@@ -49,7 +48,6 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                 tools:text="@tools:sample/lorem" />
 
         </LinearLayout>

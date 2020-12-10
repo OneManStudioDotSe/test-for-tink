@@ -3,6 +3,7 @@ package com.tinktest.sotiris.ui.gallery
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.tinktest.sotiris.models.PugInfo
 import com.tinktest.sotiris.repository.DogCeoRepository
 import com.tinktest.sotiris.repository.PugRepository
@@ -13,14 +14,13 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 import kotlin.coroutines.CoroutineContext
 
-class GalleryViewModel : ViewModel(), CoroutineScope {
-    override val coroutineContext: CoroutineContext get() = Job() + Dispatchers.Main
+class GalleryViewModel : ViewModel() {
     private val pugsMutableLiveData = MutableLiveData<ArrayList<PugInfo>>()
     val pugs: LiveData<ArrayList<PugInfo>> = pugsMutableLiveData
 
     fun getPugs() {
         Timber.d("Getting pugs from Pug Me and generating some info about them...")
-        launch {
+        viewModelScope.launch(Dispatchers.IO) {
             val pugPhotos = PugRepository.getDoggos(20)
 
             if(pugPhotos != null) {
@@ -34,7 +34,7 @@ class GalleryViewModel : ViewModel(), CoroutineScope {
 
     fun getPugsFromDogCeo() {
         Timber.d("Getting pugs from Dog Ceo and generating some info about them...")
-        launch {
+        viewModelScope.launch(Dispatchers.IO) {
             val pugPhotos = DogCeoRepository.getDoggos()
 
             if(pugPhotos != null) {
