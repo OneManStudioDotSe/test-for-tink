@@ -24,10 +24,10 @@ class GalleryViewModel : ViewModel() {
             val pugPhotos = PugRepository.getDoggos(20)
 
             if(pugPhotos != null) {
-                pugsMutableLiveData.value = preparePugsWithInfo(pugPhotos.pugs)
+                pugsMutableLiveData.postValue(preparePugsWithInfo(pugPhotos.pugs))
             } else {
                 Timber.w("An error occurred")
-                pugsMutableLiveData.value = null
+                pugsMutableLiveData.postValue(null)
             }
         }
     }
@@ -38,10 +38,10 @@ class GalleryViewModel : ViewModel() {
             val pugPhotos = DogCeoRepository.getDoggos()
 
             if(pugPhotos != null) {
-                pugsMutableLiveData.value = preparePugsWithInfo(pugPhotos.message)
+                pugsMutableLiveData.postValue(preparePugsWithInfo(pugPhotos.message))
             } else {
                 Timber.w("An error occurred")
-                pugsMutableLiveData.value = null
+                pugsMutableLiveData.postValue(null)
             }
         }
     }

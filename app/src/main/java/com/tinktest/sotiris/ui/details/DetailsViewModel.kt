@@ -23,10 +23,10 @@ class DetailsViewModel : ViewModel() {
             val dogFact = DogFactRepository.getDogFact()
 
             if(dogFact != null) {
-                pugsMutableLiveData.value = DogFunFact(dogFact.facts[0])
+                pugsMutableLiveData.postValue(DogFunFact(dogFact.facts[0]))
             } else {
                 Timber.w("An error occurred")
-                pugsMutableLiveData.value = null
+                pugsMutableLiveData.postValue(null)
             }
         }
     }

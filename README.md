@@ -30,9 +30,3 @@ Feel free to write down any suggestions or improvements that you would make in t
 - The transition animations are not the best due to the use of the navigation components which recreate the previous fragment at the backstack
 - There is a bit of duplicated code for the setup of the repos which could be skipped with a use of DI
 - Some strings are hardcoded and not localised to strings.xml
-
-# Contact info for submission
-Engineering Manager -Mobile Apps
-Jonatan Klintberg
-+46 76 307 84 60
-jonatan.klintberg@tink.se
