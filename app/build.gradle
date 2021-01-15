@@ -90,9 +90,8 @@ dependencies {
     implementation "androidx.gridlayout:gridlayout:$deps.androidX"
     implementation "androidx.recyclerview:recyclerview:$deps.recyclerView"
     implementation "com.google.android.material:material:$deps.materialComps"
-    implementation 'androidx.coordinatorlayout:coordinatorlayout:1.1.0'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    implementation "androidx.coordinatorlayout:coordinatorlayout:$deps.coordinatorLayout"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$deps.lifecycleLivedata"
     kapt "androidx.annotation:annotation:$deps.annotations"
 
     //Navigation
