@@ -24,7 +24,7 @@ class DetailsFragment : Fragment() {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this).get(DetailsViewModel::class.java)
 
-        sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+        sharedElementEnterTransition = TransitionInflater.from(requireContext()).inflateTransition(android.R.transition.move)
 
         arguments?.let {
             val safeArgs = DetailsFragmentArgs.fromBundle(it)
@@ -53,9 +53,9 @@ class DetailsFragment : Fragment() {
         binding.toolbar.navigationIcon = ContextCompat.getDrawable(binding.toolbar.context, R.drawable.ic_arrow_back_white_36dp)
         binding.toolbar.setNavigationOnClickListener { requireActivity().onBackPressed() }
 
-        viewModel.dogFunFact.observe(viewLifecycleOwner, {
-                populateTheDetails(it)
-        })
+        viewModel.dogFunFact.observe(viewLifecycleOwner) {
+            populateTheDetails(it)
+        }
     }
 
     private fun setTheDogPhotoAndName() {

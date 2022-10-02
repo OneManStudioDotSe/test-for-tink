@@ -5,9 +5,6 @@ apply plugin: "com.github.plnice.canidropjetifier"
 //Check if I can drop jetifier:   ./gradlew -Pandroid.enableJetifier=false canIDropJetifier
 
 buildscript {
-    ext.kotlinGradle = '1.6.20-M1'
-    ext.toolsGradle = '7.3.0-alpha07'
-
     repositories {
         google()
         mavenCentral()
@@ -16,9 +13,9 @@ buildscript {
 
 
     dependencies {
-        classpath "com.android.tools.build:gradle:$toolsGradle"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinGradle"
-        classpath 'androidx.navigation:navigation-safe-args-gradle-plugin:2.4.1'
+        classpath "com.android.tools.build:gradle:7.2.2"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10"
+        classpath 'androidx.navigation:navigation-safe-args-gradle-plugin:2.5.1'
         classpath "com.github.ben-manes:gradle-versions-plugin:0.42.0"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.21"
         classpath "com.github.plnice:canidropjetifier:0.5"
@@ -51,38 +48,4 @@ dependencyUpdates.resolutionStrategy {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
-}
-
-ext {
-    minSdk = 21
-    targetSdk = 32
-    compileSdk = 32
-    buildTools = '32.0.1-rc1'
-
-    //Core stuff
-    //-------------------------------
-    compat = '1.4.1'
-    multidex = '2.0.1'
-    androidX = '1.0.0'
-    lifecycle = '2.2.0'
-    coroutines = '1.6.0'
-    navigation = '2.4.1'
-    annotations = '1.3.0'
-    recyclerView = '1.2.1'
-    coordinatorLayout = '1.2.0'
-    materialComps = '1.5.0'
-    kotlin = ext.kotlinGradle
-    ktx = '1.7.0'
-    lifecycleLivedata = '2.4.1'
-
-    //Do things online
-    //-------------------------------
-    moshi = '1.13.0'
-    okHttp = '5.0.0-alpha.6'
-    retrofit = '2.9.0'
-
-    //Extras
-    //-------------------------------
-    timber = '5.0.1'
-    coil = '1.1.1'
 }

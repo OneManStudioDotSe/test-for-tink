@@ -11,16 +11,14 @@ def versionMinor = 0
 def versionPatch = 0
 def versionBuild = 1
 
-def deps = rootProject.ext
-
 android {
-    compileSdkVersion deps.compileSdk
-    buildToolsVersion deps.buildTools
+    compileSdkVersion 33
+    buildToolsVersion "33.0.0"
 
     defaultConfig {
         applicationId "com.tinktest.sotiris"
-        minSdkVersion deps.minSdk
-        targetSdkVersion deps.targetSdk
+        minSdkVersion 21
+        targetSdkVersion 33
 
         versionCode versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
         versionName "${versionMajor}.${versionMinor}.${versionPatch}"
@@ -84,40 +82,39 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     //Core Android stuff
-    implementation "androidx.multidex:multidex:$deps.multidex"
-    implementation "androidx.appcompat:appcompat:$deps.compat"
-    implementation "androidx.cardview:cardview:$deps.androidX"
-    implementation "androidx.gridlayout:gridlayout:$deps.androidX"
-    implementation "androidx.recyclerview:recyclerview:$deps.recyclerView"
-    implementation "com.google.android.material:material:$deps.materialComps"
-    implementation "androidx.coordinatorlayout:coordinatorlayout:$deps.coordinatorLayout"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$deps.lifecycleLivedata"
-    kapt "androidx.annotation:annotation:$deps.annotations"
+    implementation "androidx.multidex:multidex:2.0.1"
+    implementation "androidx.appcompat:appcompat:1.4.2"
+    implementation "androidx.cardview:cardview:1.0.0"
+    implementation "androidx.gridlayout:gridlayout:1.0.0"
+    implementation "androidx.recyclerview:recyclerview:1.2.1"
+    implementation "com.google.android.material:material:1.6.1"
+    implementation "androidx.coordinatorlayout:coordinatorlayout:1.2.0"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
+    kapt "androidx.annotation:annotation:1.4.0"
 
     //Navigation
-    implementation "androidx.navigation:navigation-fragment-ktx:$deps.navigation"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.5.1"
 
     //Coroutines
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$deps.coroutines"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$deps.coroutines"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
 
     //Kotlin & friends
-    implementation "androidx.core:core-ktx:$deps.ktx"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$deps.kotlin"
+    implementation "androidx.core:core-ktx:1.8.0"
+    //implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10"
 
     //Retrofit + OkHttp
-    implementation "com.squareup.retrofit2:retrofit:$deps.retrofit"
-    implementation "com.squareup.retrofit2:converter-moshi:$deps.retrofit"
-    implementation "com.squareup.okhttp3:okhttp:$deps.okHttp"
-    implementation "com.squareup.okhttp3:logging-interceptor:$deps.okHttp"
-    implementation "com.squareup.okhttp3:okhttp:$deps.okHttp"
-    implementation "com.squareup.okhttp3:okhttp-urlconnection:$deps.okHttp"
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
+    implementation "com.squareup.okhttp3:okhttp:5.0.0-alpha.6"
+    implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.9"
+    implementation "com.squareup.okhttp3:okhttp-urlconnection:5.0.0-alpha.6"
 
     //Moshi
-    implementation "com.squareup.moshi:moshi:$deps.moshi"
-    implementation "com.squareup.moshi:moshi-kotlin:$deps.moshi"
+    implementation "com.squareup.moshi:moshi:1.13.0"
+    implementation "com.squareup.moshi:moshi-kotlin:1.13.0"
 
     //Tools to make life easier
-    implementation "io.coil-kt:coil:$deps.coil"
-    implementation "com.jakewharton.timber:timber:$deps.timber"
+    implementation "io.coil-kt:coil:2.1.0"
+    implementation "com.jakewharton.timber:timber:5.0.1"
 }

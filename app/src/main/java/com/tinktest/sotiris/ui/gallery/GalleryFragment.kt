@@ -34,7 +34,7 @@ class GalleryFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentGalleryBinding.inflate(layoutInflater)
-        sharedElementReturnTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+        sharedElementReturnTransition = TransitionInflater.from(requireContext()).inflateTransition(android.R.transition.move)
 
         return binding.root
     }
@@ -81,7 +81,7 @@ class GalleryFragment : Fragment() {
             }
         }
 
-        viewModel.pugs.observe(viewLifecycleOwner, { pugsWithInfo ->
+        viewModel.pugs.observe(viewLifecycleOwner) { pugsWithInfo ->
             binding.loading.content.visibility = View.GONE
 
             if (pugsWithInfo != null) {
@@ -89,7 +89,7 @@ class GalleryFragment : Fragment() {
             } else {
                 showError()
             }
-        })
+        }
     }
 
     private fun setTheAdapter() {
