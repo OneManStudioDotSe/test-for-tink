@@ -25,7 +25,7 @@ class GalleryFragment : Fragment() {
     private lateinit var binding: FragmentGalleryBinding
     private lateinit var pugsAdapter: PugsAdapter
     private var selectionForColumns = 1
-    private var selectionForSource = RepoSource.PUG_ME
+    private var selectionForSource = RepoSource.DOG_CEO
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

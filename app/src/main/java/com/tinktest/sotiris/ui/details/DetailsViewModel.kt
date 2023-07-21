@@ -14,8 +14,8 @@ import timber.log.Timber
 import kotlin.coroutines.CoroutineContext
 
 class DetailsViewModel : ViewModel() {
-    private val pugsMutableLiveData = MutableLiveData<DogFunFact>()
-    val dogFunFact: LiveData<DogFunFact> = pugsMutableLiveData
+    private val pugsMutableLiveData = MutableLiveData<DogFunFact?>()
+    val dogFunFact: MutableLiveData<DogFunFact?> = pugsMutableLiveData
 
     fun getDogFunFact() {
         Timber.d("Getting a fact about dogs...")

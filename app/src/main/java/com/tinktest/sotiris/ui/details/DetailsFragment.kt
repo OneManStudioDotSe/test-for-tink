@@ -54,7 +54,9 @@ class DetailsFragment : Fragment() {
         binding.toolbar.setNavigationOnClickListener { requireActivity().onBackPressed() }
 
         viewModel.dogFunFact.observe(viewLifecycleOwner) {
-            populateTheDetails(it)
+            if (it != null) {
+                populateTheDetails(it)
+            }
         }
     }
 

@@ -15,8 +15,8 @@ import timber.log.Timber
 import kotlin.coroutines.CoroutineContext
 
 class GalleryViewModel : ViewModel() {
-    private val pugsMutableLiveData = MutableLiveData<ArrayList<PugInfo>>()
-    val pugs: LiveData<ArrayList<PugInfo>> = pugsMutableLiveData
+    private val pugsMutableLiveData = MutableLiveData<ArrayList<PugInfo>?>()
+    val pugs: MutableLiveData<ArrayList<PugInfo>?> = pugsMutableLiveData
 
     fun getPugs() {
         Timber.d("Getting pugs from Pug Me and generating some info about them...")
