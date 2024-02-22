@@ -1,4 +1,4 @@
-package com.tinktest.sotiris.ui.details
+package se.onemanstudio.test.tink.ui.details
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,10 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.transition.TransitionInflater
 import coil.load
-import com.tinktest.sotiris.R
-import com.tinktest.sotiris.databinding.FragmentDetailsBinding
-import com.tinktest.sotiris.models.DogFunFact
-import com.tinktest.sotiris.models.PugInfo
+import se.onemanstudio.test.tink.R
+import se.onemanstudio.test.tink.databinding.FragmentDetailsBinding
+import se.onemanstudio.test.tink.models.DogFunFact
+import se.onemanstudio.test.tink.models.PugInfo
 import java.util.concurrent.TimeUnit
 
 class DetailsFragment : Fragment() {

@@ -1,12 +1,12 @@
-package com.tinktest.sotiris.ui.gallery
+package se.onemanstudio.test.tink.ui.gallery
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.tinktest.sotiris.models.PugInfo
-import com.tinktest.sotiris.repository.DogCeoRepository
-import com.tinktest.sotiris.repository.PugRepository
+import se.onemanstudio.test.tink.models.PugInfo
+import se.onemanstudio.test.tink.repository.DogCeoRepository
+import se.onemanstudio.test.tink.repository.PugRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

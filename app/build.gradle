@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
@@ -12,34 +15,43 @@ def versionPatch = 0
 def versionBuild = 1
 
 android {
-    compileSdkVersion 33
-    buildToolsVersion "33.0.2"
+    namespace "se.onemanstudio.test.tink"
+
+    compileSdk 34
 
     defaultConfig {
-        applicationId "com.tinktest.sotiris"
-        minSdkVersion 21
-        targetSdkVersion 33
+        applicationId "se.onemanstudio.test.tink"
+
+        minSdk 22
+        targetSdk 34
 
         versionCode versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
         versionName "${versionMajor}.${versionMinor}.${versionPatch}"
         setProperty("archivesBaseName", applicationId + "-" + versionName + "." + versionBuild)
 
         multiDexEnabled true
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     buildFeatures.viewBinding = true
-    dexOptions.javaMaxHeapSize "4G"
+    lint.abortOnError false
+    kapt.correctErrorTypes true
+
     packagingOptions {
         resources {
-            excludes += ['META-INF/ASL2.0', 'META-INF/LICENSE', 'META-INF/license.txt', 'META-INF/LICENSE.txt', 'META-INF/NOTICE', 'META-INF/notice.txt', 'META-INF/NOTICE.txt', 'META-INF/services/javax.annotation.processing.Processor', 'META-INF/DEPENDENCIES', 'LICENSE.txt']
+            excludes += ['META-INF/ASL2.0', 'META-INF/LICENSE', 'META-INF/license.txt',
+                         'META-INF/LICENSE.txt', 'META-INF/NOTICE', 'META-INF/notice.txt',
+                         'META-INF/NOTICE.txt', 'META-INF/services/javax.annotation.processing.Processor',
+                         'META-INF/DEPENDENCIES', 'LICENSE.txt']
             pickFirsts += ['META-INF/atomicfu.kotlin_module']
         }
     }
 
-
     buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
         debug {
             buildConfigField "String", "BASE_URL_FOR_PUGME", '"https://pugme.herokuapp.com/"'
             buildConfigField "String", "BASE_URL_FOR_DOGCEO", '"https://dog.ceo/"'
@@ -49,7 +61,6 @@ android {
 
             minifyEnabled false
             shrinkResources false
-            zipAlignEnabled false
 
             jniDebuggable false
             renderscriptDebuggable false
@@ -61,14 +72,11 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    namespace 'com.tinktest.sotiris'
-    lint {
-        abortOnError false
-    }
 
-    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
-        kotlinOptions {
-            jvmTarget = "1.8"
+    tasks.withType(KotlinCompile).configureEach {
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_1_8)
+            freeCompilerArgs.add("-opt-in=kotlin.RequiresOptIn")
         }
     }
 }
@@ -81,35 +89,35 @@ dependencies {
     implementation "androidx.appcompat:appcompat:1.6.1"
     implementation "androidx.cardview:cardview:1.0.0"
     implementation "androidx.gridlayout:gridlayout:1.0.0"
-    implementation "androidx.recyclerview:recyclerview:1.3.0"
-    implementation "com.google.android.material:material:1.9.0"
+    implementation "androidx.recyclerview:recyclerview:1.3.2"
+    implementation "com.google.android.material:material:1.11.0"
     implementation "androidx.coordinatorlayout:coordinatorlayout:1.2.0"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.6.1"
-    kapt "androidx.annotation:annotation:1.6.0"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.7.0"
+    kapt "androidx.annotation:annotation:1.7.1"
 
     //Navigation
-    implementation "androidx.navigation:navigation-fragment-ktx:2.5.3"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.7.7"
 
     //Coroutines
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0"
 
     //Kotlin & friends
-    implementation "androidx.core:core-ktx:1.10.1"
+    implementation "androidx.core:core-ktx:1.12.0"
     //implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10"
 
     //Retrofit + OkHttp
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
     implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
-    implementation "com.squareup.okhttp3:okhttp:5.0.0-alpha.6"
-    implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.9"
-    implementation "com.squareup.okhttp3:okhttp-urlconnection:5.0.0-alpha.6"
+    implementation "com.squareup.okhttp3:okhttp:5.0.0-alpha.12"
+    implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.12"
+    implementation "com.squareup.okhttp3:okhttp-urlconnection:5.0.0-alpha.12"
 
     //Moshi
-    implementation "com.squareup.moshi:moshi:1.13.0"
-    implementation "com.squareup.moshi:moshi-kotlin:1.13.0"
+    implementation "com.squareup.moshi:moshi:1.15.1"
+    implementation "com.squareup.moshi:moshi-kotlin:1.15.1"
 
     //Tools to make life easier
-    implementation "io.coil-kt:coil:2.4.0"
+    implementation "io.coil-kt:coil:2.5.0"
     implementation "com.jakewharton.timber:timber:5.0.1"
 }

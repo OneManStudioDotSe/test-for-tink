@@ -1,3 +1,3 @@
-package com.tinktest.sotiris.models
+package se.onemanstudio.test.tink.models
 
 data class DogFunFact(val fact: String)

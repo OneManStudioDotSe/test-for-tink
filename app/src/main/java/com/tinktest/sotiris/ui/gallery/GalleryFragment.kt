@@ -1,4 +1,4 @@
-package com.tinktest.sotiris.ui.gallery
+package se.onemanstudio.test.tink.ui.gallery
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -13,11 +13,11 @@ import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.transition.TransitionInflater
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.tinktest.sotiris.R
-import com.tinktest.sotiris.databinding.FragmentGalleryBinding
-import com.tinktest.sotiris.models.PugInfo
-import com.tinktest.sotiris.repository.RepoSource
-import com.tinktest.sotiris.ui.gallery.adapter.PugsAdapter
+import se.onemanstudio.test.tink.R
+import se.onemanstudio.test.tink.databinding.FragmentGalleryBinding
+import se.onemanstudio.test.tink.models.PugInfo
+import se.onemanstudio.test.tink.repository.RepoSource
+import se.onemanstudio.test.tink.ui.gallery.adapter.PugsAdapter
 import timber.log.Timber
 
 class GalleryFragment : Fragment() {

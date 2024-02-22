@@ -1,4 +1,4 @@
-package com.tinktest.sotiris
+package se.onemanstudio.test.tink
 
 import android.content.Context
 import androidx.multidex.MultiDexApplication
