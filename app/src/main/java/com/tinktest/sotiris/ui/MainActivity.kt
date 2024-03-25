@@ -1,9 +1,9 @@
-package com.tinktest.sotiris.ui
+package se.onemanstudio.test.tink.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
-import com.tinktest.sotiris.R
+import se.onemanstudio.test.tink.R
 
 class MainActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

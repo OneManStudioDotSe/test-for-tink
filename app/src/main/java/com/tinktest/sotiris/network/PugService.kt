@@ -1,6 +1,6 @@
-package com.tinktest.sotiris.network
+package se.onemanstudio.test.tink.network
 
-import com.tinktest.sotiris.repository.dtos.PugsResponse
+import se.onemanstudio.test.tink.repository.dtos.PugsResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

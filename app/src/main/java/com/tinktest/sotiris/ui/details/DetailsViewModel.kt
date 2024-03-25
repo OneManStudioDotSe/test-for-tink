@@ -1,11 +1,11 @@
-package com.tinktest.sotiris.ui.details
+package se.onemanstudio.test.tink.ui.details
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.tinktest.sotiris.models.DogFunFact
-import com.tinktest.sotiris.repository.DogFactRepository
+import se.onemanstudio.test.tink.models.DogFunFact
+import se.onemanstudio.test.tink.repository.DogFactRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

@@ -1,4 +1,4 @@
-package com.tinktest.sotiris.models
+package se.onemanstudio.test.tink.models
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

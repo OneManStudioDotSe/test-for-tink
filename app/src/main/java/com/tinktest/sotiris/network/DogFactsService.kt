@@ -1,6 +1,6 @@
-package com.tinktest.sotiris.network
+package se.onemanstudio.test.tink.network
 
-import com.tinktest.sotiris.repository.dtos.DogFactResponse
+import se.onemanstudio.test.tink.repository.dtos.DogFactResponse
 import retrofit2.http.GET
 
 interface DogFactsService {

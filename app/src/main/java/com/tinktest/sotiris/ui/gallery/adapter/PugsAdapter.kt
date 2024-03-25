@@ -1,4 +1,4 @@
-package com.tinktest.sotiris.ui.gallery.adapter
+package se.onemanstudio.test.tink.ui.gallery.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.tinktest.sotiris.R
-import com.tinktest.sotiris.databinding.ItemDogBinding
-import com.tinktest.sotiris.models.PugInfo
+import se.onemanstudio.test.tink.R
+import se.onemanstudio.test.tink.databinding.ItemDogBinding
+import se.onemanstudio.test.tink.models.PugInfo
 
 class PugsAdapter : RecyclerView.Adapter<PugsAdapter.PostViewHolder>() {
     private var items: List<PugInfo>? = null

@@ -1,8 +1,6 @@
 apply plugin: "com.github.ben-manes.versions"
-apply plugin: "com.github.plnice.canidropjetifier"
 //Check versions of dependencies: ./gradlew dependencyUpdates -Drevision=milestone -DoutputFormatter=json
 //Force-update dependencies:      ./gradlew clean build --refresh-dependencies
-//Check if I can drop jetifier:   ./gradlew -Pandroid.enableJetifier=false canIDropJetifier
 
 buildscript {
     repositories {
@@ -13,19 +11,10 @@ buildscript {
 
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.0.2'
+        classpath 'com.android.tools.build:gradle:8.3.0-rc02'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10"
-        classpath 'androidx.navigation:navigation-safe-args-gradle-plugin:2.5.3'
-        classpath "com.github.ben-manes:gradle-versions-plugin:0.45.0"
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.21'
-        classpath "com.github.plnice:canidropjetifier:0.5"
-    }
-}
-
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
+        classpath 'androidx.navigation:navigation-safe-args-gradle-plugin:2.7.7'
+        classpath "com.github.ben-manes:gradle-versions-plugin:0.51.0"
     }
 }
 
@@ -44,8 +33,4 @@ dependencyUpdates.resolutionStrategy {
             }
         }
     }
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
 }

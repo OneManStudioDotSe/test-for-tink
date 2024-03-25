@@ -1,10 +1,10 @@
-package com.tinktest.sotiris.repository
+package se.onemanstudio.test.tink.repository
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import com.tinktest.sotiris.BuildConfig
-import com.tinktest.sotiris.network.PugService
-import com.tinktest.sotiris.repository.dtos.PugsResponse
+import se.onemanstudio.test.tink.BuildConfig
+import se.onemanstudio.test.tink.network.PugService
+import se.onemanstudio.test.tink.repository.dtos.PugsResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
