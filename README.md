@@ -23,7 +23,7 @@ Feel free to write down any suggestions or improvements that you would make in t
 ## Android development
 
 Rugby Ranker attempts to make use of the latest Android libraries and best practices:
-* Entirely written in [Kotlin](https://kotlinlang.org/) (including [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html)
+* Entirely written in [Kotlin](https://kotlinlang.org/) (including [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html))
 * Centralized way of handling versioning of dependencies
 * Use of handy scripts for overall project maintenance
 * MVVM as architecture
